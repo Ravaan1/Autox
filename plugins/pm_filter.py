@@ -54,7 +54,7 @@ async def give_filter(client, message):
             try:
                 if settings['auto_ffilter']:
                     ai_search = True
-                    reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                    reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                     await auto_filter(client, message.text, message, reply_msg, ai_search)
             except KeyError:
                 grpid = await active_connection(str(message.from_user.id))
@@ -62,7 +62,7 @@ async def give_filter(client, message):
                 settings = await get_settings(message.chat.id)
                 if settings['auto_ffilter']:
                     ai_search = True
-                    reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                    reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                     await auto_filter(client, message.text, message, reply_msg, ai_search)
     else: #a better logic to avoid repeated lines of code in auto_filter function
         search = message.text
@@ -70,7 +70,7 @@ async def give_filter(client, message):
         if total_results == 0:
             return
         else:
-            return await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nJᴏɪɴ ᴀɴᴅ Sᴇᴀʀᴄʜ Hᴇʀᴇ - https://t.me/vj_bots</b>")
+            return await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. \n\nTʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...</b>")
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
@@ -80,10 +80,10 @@ async def pm_text(bot, message):
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     if PM_SEARCH == True:
         ai_search = True
-        reply_msg = await bot.send_message(message.from_user.id, f"<b><i>Searching For {content} 🔍</i></b>", reply_to_message_id=message.id)
+        reply_msg = await bot.send_message(message.from_user.id, f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {content}</i></b>", reply_to_message_id=message.id)
         await auto_filter(bot, content, message, reply_msg, ai_search)
     else:
-        await message.reply_text(text=f"<b>ʜᴇʏ {user} 😍 ,\n\nʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴍᴏᴠɪᴇs ꜰʀᴏᴍ ʜᴇʀᴇ. ʀᴇǫᴜᴇsᴛ ɪᴛ ɪɴ ᴏᴜʀ <a href=https://t.me/vj_bots>ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ</a> ᴏʀ ᴄʟɪᴄᴋ ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ 👇</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ", url=f"https://t.me/vj_bots")]]))
+        await message.reply_text(text=f"<b>ʜᴇʏ {user} 😍 ,\n\nʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴍᴏᴠɪᴇs ꜰʀᴏᴍ ʜᴇʀᴇ. ʀᴇǫᴜᴇsᴛ ɪᴛ ɪɴ ᴏᴜʀ <a href=https://t.me/Autox_Movies>ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ</a> ᴏʀ ᴄʟɪᴄᴋ ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ 👇</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ", url=f"https://t.me/Autox_Movies")]]))
         await bot.send_message(chat_id=LOG_CHANNEL, text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>")
 
 @Client.on_callback_query(filters.regex(r"^next"))
@@ -257,7 +257,7 @@ async def advantage_spoll_choker(bot, query):
             if files:
                 k = (movie, files, offset, total_results)
                 ai_search = True
-                reply_msg = await query.message.edit_text(f"<b><i>Searching For {movie} 🔍</i></b>")
+                reply_msg = await query.message.edit_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {movie}</i></b>")
                 await auto_filter(bot, movie, query, reply_msg, ai_search, k)
             else:
                 reqstr1 = query.from_user.id if query.from_user else 0
@@ -1081,7 +1081,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free_trial_status = await db.get_free_trial_status(user_id)
         if not free_trial_status:            
             await db.give_free_trail(user_id)
-            new_text = "**ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ꜰʀᴇᴇ ᴛʀᴀɪʟ ꜰᴏʀ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴏᴍ ɴᴏᴡ 😀\n\nआप अब से 5 मिनट के लिए निःशुल्क ट्रायल का उपयोग कर सकते हैं 😀**"        
+            new_text = "**ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ꜰʀᴇᴇ ᴛʀᴀɪʟ ꜰᴏʀ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴏᴍ ɴᴏᴡ 😀**"        
             await query.message.edit_text(text=new_text)
             return
         else:
@@ -1920,14 +1920,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
                 quote=True,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                                                    InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download", url=download),  # we download Link
+                                                    InlineKeyboardButton('🖥️ Watch online', url=stream)]])  # web stream Link
             )
             button = [[
-                InlineKeyboardButton("🚀 Fast Download 🚀", url=download),
-                InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
-            ],[
-                InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
+                InlineKeyboardButton("🚀 Fast Download", url=download),
+                InlineKeyboardButton('🖥️ Watch online', url=stream)
             ]]
             await query.message.reply_text(
                 text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
@@ -1956,12 +1954,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
                 InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
-                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
+                InlineKeyboardButton('⌬ ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇsᴛ ɢʀᴏᴜᴘ', url=GRP_LNK)
             ],[
                 InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
                 InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('💳 Gᴇᴛ Fʀᴇᴇ Oʀ Pᴀɪᴅ Sᴜʙsᴄʀɪᴘᴛɪᴏɴ 💳', callback_data='subscription')
             ],[
                 InlineKeyboardButton('✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇', url=CHNL_LNK)
             ]]
@@ -1970,7 +1966,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
                 InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
-                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
+                InlineKeyboardButton('⌬ ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇsᴛ ɢʀᴏᴜᴘ', url=GRP_LNK)
             ],[
                 InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
                 InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
@@ -2049,24 +2045,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
              InlineKeyboardButton('⚙️ ᴀᴅᴍɪɴ ᴏɴʟʏ 🔧', callback_data='admin'),
          ], [ 
-             InlineKeyboardButton('ʀᴇɴᴀᴍᴇ', callback_data='r_txt'),   
+             #InlineKeyboardButton('ʀᴇɴᴀᴍᴇ', callback_data='r_txt'), 
+             InlineKeyboardButton('ꜱᴛɪᴄᴋᴇʀ-ɪᴅ', callback_data='sticker'),
              InlineKeyboardButton('sᴛʀᴇᴀᴍ/ᴅᴏᴡɴʟᴏᴀᴅ', callback_data='s_txt') 
          ], [ 
-             InlineKeyboardButton('ꜰɪʟᴇ ꜱᴛᴏʀᴇ', callback_data='store_file'),   
-             InlineKeyboardButton('ᴛᴇʟᴇɢʀᴀᴘʜ', callback_data='tele') 
-         ], [ 
+             InlineKeyboardButton('ꜰɪʟᴇ ꜱᴛᴏʀᴇ', callback_data='store_file'),
              InlineKeyboardButton('ᴄᴏɴɴᴇᴄᴛɪᴏɴꜱ', callback_data='coct'), 
-             InlineKeyboardButton('ꜰɪʟᴛᴇʀꜱ', callback_data='filters')
-         ], [
-             InlineKeyboardButton('ʏᴛ-ᴅʟ', callback_data='ytdl'), 
-             InlineKeyboardButton('ꜱʜᴀʀᴇ ᴛᴇxᴛ', callback_data='share')
-         ], [
-             InlineKeyboardButton('ꜱᴏɴɢ', callback_data='song'),
-             InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data='shortlink_info')
-         ], [
-             InlineKeyboardButton('ꜱᴛɪᴄᴋᴇʀ-ɪᴅ', callback_data='sticker'),
-             InlineKeyboardButton('ᴊ-ꜱᴏɴ', callback_data='json')
-         ], [             
+         ], [ 
+             #InlineKeyboardButton('ᴄᴏɴɴᴇᴄᴛɪᴏɴꜱ', callback_data='coct'), 
+             #InlineKeyboardButton('ꜰɪʟᴛᴇʀꜱ', callback_data='filters')
+         #], [
+             #InlineKeyboardButton('ʏᴛ-ᴅʟ', callback_data='ytdl'), 
+             #InlineKeyboardButton('ꜱʜᴀʀᴇ ᴛᴇxᴛ', callback_data='share')
+         #], [
+            # InlineKeyboardButton('ꜱᴏɴɢ', callback_data='song'),
+            # InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data='shortlink_info')
+         #], [
+            # InlineKeyboardButton('ᴊ-ꜱᴏɴ', callback_data='json')
+         #], [             
              InlineKeyboardButton('🏠 𝙷𝙾𝙼𝙴 🏠', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -2083,7 +2079,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "about":
         buttons = [[
             InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ', url="https://github.com/VJBots/VJ-FILTER-BOT")
+            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ', url="https://t.me/TG_BOTS_UPDATE")
         ],[
             InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close_data')
@@ -2335,7 +2331,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "tele":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVJ01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2376,7 +2372,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "share":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2392,7 +2388,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "song":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2433,7 +2429,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "sticker":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2449,7 +2445,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "tamil_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2464,8 +2460,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
     elif query.data == "english_info":
             btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2480,8 +2475,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
     elif query.data == "hindi_info":
             btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2496,8 +2490,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
     elif query.data == "telugu_info":
             btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2513,7 +2506,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "malayalam_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2529,7 +2522,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "urdu_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2545,7 +2538,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "bangladesh_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
 
             await client.edit_message_media(
@@ -2562,7 +2555,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "kannada_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2578,7 +2571,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "gujarati_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/KingVj01")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/harikushal")
                   ]]
         
             await client.edit_message_media(
@@ -2971,7 +2964,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
     SPELL_CHECK[mv_id] = movielist
     if AI_SPELL_CHECK == True and vj_search == True:
         vj_search_new = False
-        vj_ai_msg = await reply_msg.edit_text("<b><i>Advance Ai Try To Find Your Movie With Your Wrong Spelling.</i></b>")
+        vj_ai_msg = await reply_msg.edit_text("<b><i>💫 ᴀɪ sᴘᴇʟʟ ᴄʜᴇᴄᴋ ᴀᴄᴛɪᴠᴀᴛᴇᴅ.</i></b>")
         movienamelist = []
         movienamelist += [movie.get('title') for movie in movies]
         for techvj in movienamelist:
@@ -3134,7 +3127,7 @@ async def manual_filters(client, message, text=False):
                         try:
                             if settings['auto_ffilter']:
                                 ai_search = True
-                                reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ{message.text}</i></b>")
                                 await auto_filter(client, message.text, message, reply_msg, ai_search)
                                 try:
                                     if settings['auto_delete']:
@@ -3163,7 +3156,7 @@ async def manual_filters(client, message, text=False):
                             settings = await get_settings(message.chat.id)
                             if settings['auto_ffilter']:
                                 ai_search = True
-                                reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                 await auto_filter(client, message.text, message, reply_msg, ai_search)
                     else:
                         button = eval(btn)
@@ -3176,7 +3169,7 @@ async def manual_filters(client, message, text=False):
                         try:
                             if settings['auto_ffilter']:
                                 ai_search = True
-                                reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                 await auto_filter(client, message.text, message, reply_msg, ai_search)
                                 try:
                                     if settings['auto_delete']:
@@ -3205,7 +3198,7 @@ async def manual_filters(client, message, text=False):
                             settings = await get_settings(message.chat.id)
                             if settings['auto_ffilter']:
                                 ai_search = True
-                                reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                 await auto_filter(client, message.text, message, reply_msg, ai_search)
 
                 except Exception as e:
@@ -3244,7 +3237,7 @@ async def global_filters(client, message, text=False):
                                 try:
                                     if settings['auto_ffilter']:
                                         ai_search = True
-                                        reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                        reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                         await auto_filter(client, message.text, message, reply_msg, ai_search)
                                         try:
                                             if settings['auto_delete']:
@@ -3273,7 +3266,7 @@ async def global_filters(client, message, text=False):
                                     settings = await get_settings(message.chat.id)
                                     if settings['auto_ffilter']:
                                         ai_search = True
-                                        reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                        reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                         await auto_filter(client, message.text, message, reply_msg, ai_search) 
                             else:
                                 try:
@@ -3301,7 +3294,7 @@ async def global_filters(client, message, text=False):
                                 try:
                                     if settings['auto_ffilter']:
                                         ai_search = True
-                                        reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                        reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                         await auto_filter(client, message.text, message, reply_msg, ai_search)
                                         try:
                                             if settings['auto_delete']:
@@ -3330,7 +3323,7 @@ async def global_filters(client, message, text=False):
                                     settings = await get_settings(message.chat.id)
                                     if settings['auto_ffilter']:
                                         ai_search = True
-                                        reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                        reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                         await auto_filter(client, message.text, message, reply_msg, ai_search)
                             else:
                                 try:
@@ -3356,7 +3349,7 @@ async def global_filters(client, message, text=False):
                             try:
                                 if settings['auto_ffilter']:
                                     ai_search = True
-                                    reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                    reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                     await auto_filter(client, message.text, message, reply_msg, ai_search)
                                     try:
                                         if settings['auto_delete']:
@@ -3385,7 +3378,7 @@ async def global_filters(client, message, text=False):
                                 settings = await get_settings(message.chat.id)
                                 if settings['auto_ffilter']:
                                     ai_search = True
-                                    reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                    reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                     await auto_filter(client, message.text, message, reply_msg, ai_search) 
                         else:
                             try:
@@ -3412,7 +3405,7 @@ async def global_filters(client, message, text=False):
                             try:
                                 if settings['auto_ffilter']:
                                     ai_search = True
-                                    reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                    reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                     await auto_filter(client, message.text, message, reply_msg, ai_search)
                                     try:
                                         if settings['auto_delete']:
@@ -3441,7 +3434,7 @@ async def global_filters(client, message, text=False):
                                 settings = await get_settings(message.chat.id)
                                 if settings['auto_ffilter']:
                                     ai_search = True
-                                    reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
+                                    reply_msg = await message.reply_text(f"<b><i>⚠️ sᴇᴀʀᴄʜɪɴɢ ғᴏʀ {message.text}</i></b>")
                                     await auto_filter(client, message.text, message, reply_msg, ai_search)
                         else:
                             try:
